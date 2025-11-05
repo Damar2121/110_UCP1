@@ -52,15 +52,15 @@ db.sequelize.sync()
         }
     });
 
-    app.delete('/komik/:id', async (req, res) => {
-        const id = req.params.id;
+    app.delete('/hotel/:ID', async (req, res) => {
+        const ID = req.params.ID;
         try {
-            const komik = await db.Komik.findByPk(id);
-        if (!komik) {
-            return res.status(404).send({ message: 'Komik not found' });
+            const hotel = await db.hotel.findByPk(ID);
+        if (!hotel) {
+            return res.status(404).send({ message: 'hotel not found' });
         }
-        await komik.destroy();
-        res.send({ message: 'Komik berhasil dihapus' });
+        await hotel.destroy();
+        res.send({ message: 'hotel berhasil dihapus' });
         } catch (error) {
             res.status(500).send(err)
         }
