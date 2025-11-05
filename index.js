@@ -28,10 +28,10 @@ db.sequelize.sync()
         res.send({message: error.message});
         });
 
-      app.get('/komik', async (req, res) => {
+      app.get('/hotel', async (req, res) => {
         try {
-            const komiks = await db.Komik.findAll();
-            res.send(komiks);
+            const hotel = await db.hotel.findAll();
+            res.send(hotel);
         } catch (error) {
             res.send({message: error.message});
         }
