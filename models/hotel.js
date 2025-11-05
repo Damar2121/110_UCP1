@@ -1,12 +1,12 @@
 module.exports = (sequelize, DataTypes) => {
-  const Komik = sequelize.define("hotel", {
+  const Hotel = sequelize.define("Hotel", {
     ID: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
     }, 
     Tipe_Kamar: {
-      type: DataTypes.VARCHAR(50 ),
+      type: DataTypes.STRING,
       allowNull: false      
     },
     Kapasitas_Tamu: {
@@ -17,15 +17,17 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-
     Fasilitas: {
-      type: DataTypes.VARCHAR(50),
+      type: DataTypes.STRING,
       allowNull: false
     },
   }, {
     tableName: "hotel",
     freezeTableName: true,
-    timestamps: true
+    timestamps: true,
+    createdAt: 'Tanggal_Pesan',
+    updatedAt: false
   });
-  return hotel;
+
+  return Hotel;
 };
