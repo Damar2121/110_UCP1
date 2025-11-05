@@ -37,16 +37,16 @@ db.sequelize.sync()
         }
     });
 
-    app.put('/komik/:id', async (req, res) => {
-        const id = req.params.id;
+    app.put('/hotel/:ID', async (req, res) => {
+        const ID = req.params.ID;
         const data = req.body;
         try {
-            const komik = await db.Komik.findByPk(id);
-            if (!komik) {
-                return res.status(404).send({ message: 'Komik not found' });
+            const hotel = await db.hotel.findByPk(ID);
+            if (!hotel) {
+                return res.status(404).send({ message: 'hotel not found' });
             }
             await komik.update(data);
-            res.send({ message: 'Komik berhasil diupdate', komik });
+            res.send({ message: 'hotel berhasil diupdate', hotel });
         } catch (error) {
             res.send({ message: error.message });
         }
