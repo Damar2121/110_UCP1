@@ -19,11 +19,11 @@ db.sequelize.sync()
         console.log(err);
      })
 
-    app.post('/komik', async (req, res) => {
+    app.post('/hotel', async (req, res) => {
         const data = req.body;
         try {
-            const komik = await db.Komik.create(data);
-            res.send(komik);
+            const hotel = await db.hotel.create(data);
+            res.send(hotel);
         } catch (error) {}
         res.send({message: error.message});
         });
